@@ -8,9 +8,11 @@
 
 #import "AppDelegate.h"
 
-#import "FirstViewController.h"
+#import "TopViewController.h"
 
-#import "SecondViewController.h"
+#import "AllViewController.h"
+#import "NBAViewController.h"
+#import "FootballViewController.h"
 
 @implementation AppDelegate
 
@@ -25,10 +27,24 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil] autorelease];
-    UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
+    TopViewController *viewController1 = [[TopViewController alloc] initWithNibName:@"TopViewController" bundle:nil];
+    UINavigationController *navController1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
+    [viewController1 release];
+    AllViewController *viewController2 = [[AllViewController alloc] initWithNibName:@"AllViewController" bundle:nil];
+    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
+    [viewController2 release];
+    NBAViewController *viewController3 = [[NBAViewController alloc] initWithNibName:@"NBAViewController" bundle:nil];
+    UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:viewController3];
+    [viewController3 release];
+    FootballViewController *viewController4 = [[FootballViewController alloc] initWithNibName:@"FootballViewController" bundle:nil];
+    UINavigationController *navController4 = [[UINavigationController alloc] initWithRootViewController:viewController4];
+    [viewController4 release];
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = @[viewController1, viewController2];
+    self.tabBarController.viewControllers = @[navController1, navController2,navController3,navController4];
+    [navController1 release];
+    [navController2 release];
+    [navController3 release];
+    [navController4 release];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;

@@ -50,7 +50,6 @@
     MessageDownloader *downloader = [[MessageDownloader alloc] init];
     [downloader startDownload:kFootball withType:@"foot" page:page];
     [downloader release];
-    
 }
 
 - (void)viewDidLoad
